@@ -6,8 +6,7 @@ other submissions that I've seen) have focused on transformer-based models, I ch
 
 Unfortunately, it seems that it was the choice of loss function that ultimately held the model back, as the contest was scored using Levenshtein distance, and as I discovered too-late into the 
 competition, optimizing CTC loss will only improve Levenshtein distance up to a point, and then hit a wall. Following this discovery, I tried out a few different approaches to computing a new loss
-for the training loop, including MWER (minimum word error loss). I think these approaches might have borne fruit if we'd had more time for exploration before drawing out our plans.
+for the training loop, including MWER (minimum word error loss) and RNN-T (RNN Transducers). I think these approaches might have borne fruit if I'd had more time for exploration before drawing out plans.
 
-I still believe that an RNN-based approach is the right path to take here. I've been following in earnest the (RWKV [("rawkuv")](https://rwkv.org):w project. It promises to deliver transformer-like 
-scalability coupled with RNN-like streaming inference. I honestly just don't like the idea of doing text-based inference in chunks. It feels so inelegant.
-
+I still believe that an a streaming-inference approach is the optimal solution to this problem. I've been following in earnest the (RWKV [("rawkuv")](https://rwkv.org) project. It promises to deliver transformer-like 
+scalability coupled with RNN-like streaming inference. I personally (although I don't think I'm alone in this) just don't like the idea of doing text-based inference in chunks and gluing them together. It just feels so clumsy and inelegant.
